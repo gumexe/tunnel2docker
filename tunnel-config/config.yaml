@@ -1,0 +1,23 @@
+tunnel: { UUID }
+# credentials-file: /home/pi/.cloudflared/{UUID}.json
+credentials-file: /etc/cloudflared/{UUID}.json
+
+ingress:
+  # Rules map traffic from a hostname to a local service:
+  # - hostname: domain.com
+  #   service: http://localhost:80
+  # - hostname: www.domain.com
+  #   service: http://localhost:80
+  # Rules can match the request's hostname to a wildcard character:
+  # - hostname: '*.domain.com'
+  #   service: http://localhost:80
+  - hostname: sub.domain.com
+    service: http://localhost:80
+  # An example of a catch-all rule:
+  # - service: https://localhost:80
+  # Example of a rule responding to traffic with an HTTP status:
+  - service: http_status:404
+#
+#
+# Ingress rules:
+# https://developers.cloudflare.com/cloudflare-one/connections/connect-apps/configuration/local-management/ingress/
